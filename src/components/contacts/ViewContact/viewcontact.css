@@ -1,0 +1,17 @@
+.user-img{
+    display: grid;
+    place-content: center;
+    padding: 5%;
+}
+
+.lst{
+    margin: 0 auto;
+    width: 70%;
+    display: grid;
+    place-content: center;
+}
+.info{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+}
