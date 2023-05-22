@@ -9,7 +9,6 @@ Packages
 
 4.Connect Fontawesome to CDN Link to Html page
 
-
 5.index.js
 
 6.Axios = Fetch Data (npm i axios)
@@ -17,18 +16,34 @@ Packages
 7.React router dom = Create Router ( npm i react-router-dom)
 
 ------------------------------------------
+Operations:
 
-components: Navbar,contact-list,view-contact,edit-contact,add-contact
+1.Create = Create contact
 
-services : Contactservices
+2.Read = View Contact Data
+
+3.Update = Update contact info.
+
+4.Delete = Delete contact
+
+------------------------------------------
+
+Components: 
+
+1.Navbar
+
+2.contact-list
+
+3.view-contact
+
+4.edit-contact
+
+5.add-contact
+
 
 ---------------------------------------------
 
-Create Server
+Deploy Link:https://contactlist-manager.netlify.app/
 
-1.dbJson  => Json file
 
-2.packge.json => npm init --yes
-
-3.Json server => npm i json-server
 
