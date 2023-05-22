@@ -12,8 +12,6 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
 export default function ContactList() {
 
 
@@ -52,6 +50,13 @@ export default function ContactList() {
   }
 
 
+const [searchQuery, setSearchQuery] = useState("");
+
+const search=(e)=>{
+    setSearchQuery(e.target.value);
+}
+
+
   return (
     <>
       <section className='contact-search p-2'>
@@ -73,16 +78,15 @@ export default function ContactList() {
               {/* SearchBar */}
                 <div className="row p-1">
                   <div className="col-md-6">
-                    <form className='row'>
-                      <div className="col">
+                    <form className='row' onSubmit={(e) => e.preventDefault()}>
+                      <div className="col-md-5">
                           <div className="mb-2">
-                              <input type='text' className='form-control' placeholder='Search-Names'/>
+                              <input type='text' 
+                              className='form-control' 
+                              placeholder='Search-Names'
+                              value={searchQuery}
+                              onChange={search}/>
                           </div>
-                      </div>
-                      <div className="col">
-                            <div className="mb-2">
-                                <input type='submit' className='btn btn-outline-dark' value='Search'/>
-                            </div>
                       </div>
                     </form>
                   </div>
@@ -97,7 +101,8 @@ export default function ContactList() {
               <div className="row">
 
                     {
-                      contacts.map((contact,id)=>(
+                      
+                    contacts.filter((contact) => contact.name.toLowerCase().includes(searchQuery.toLowerCase())).map((contact, id) => (
 
                     <div className="col-md-6" key={contact.id}>
                       <div className="card my-2">

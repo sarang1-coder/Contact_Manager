@@ -54,7 +54,7 @@ export default function EditContact() {
     
       // Check Number in Contact List 
     const checkNumber=contacts.find(
-      (contact) => contact.id!==parseInt(id) && contact.number === number && parseInt(number)
+      (contact) => contact.id!==parseInt(id) && contact.number === number && parseInt(number) 
     );
 
 

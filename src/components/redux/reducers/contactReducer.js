@@ -1,20 +1,10 @@
-const initialState=[
-    {
-        id:0,
-        name:"adf",
-        number:'234',
-        email:'abc@gmail.com'
-    },
-    {
-        id:1,
-        name:"rr",
-        number:'23234',
-        email:'abdc@gmail.com'
-    }
-]
+const initialState=[];
 
 const contactReducer=(state=initialState,action) => {
     switch(action.type){
+
+        case 'FETCH_DATA':
+            return action.payload;
 
         case 'ADD_CONTACT':
             state=[...state,action.payload];
@@ -29,6 +19,8 @@ const contactReducer=(state=initialState,action) => {
             const filterContact=state.filter((contact) => contact.id !== action.payload ? contact : null);
             state=filterContact;
             return state;
+        
+        
 
         default:
             return state

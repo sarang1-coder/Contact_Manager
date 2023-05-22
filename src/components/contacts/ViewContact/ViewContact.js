@@ -2,11 +2,26 @@ import React from 'react';
 import './viewcontact.css';
 import { useState , useEffect } from "react";
 import { Avatar } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
+import axios from 'axios';
 
 const ViewContact=()=> {
+
+
+  // const contact=useSelector((state)=>state);
+
+  const{id}=useParams();
+
+  const[data,setData]=useState({name:'',email:'',phone:''});
+
+    useEffect(() => {
+    async function fetchData() {
+      const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+      setData(response.data);
+    }
+    fetchData();
+  }, [id]);
 
 
   const[seed,setSeed]=useState("");
@@ -31,9 +46,8 @@ const ViewContact=()=> {
   }, [imageUrl]);
 
 
-
-
   return (
+
     <>
       <div className="main">
         <div className="info">
@@ -47,17 +61,16 @@ const ViewContact=()=> {
 
           <div className="user-info">
 
-
                   <ul className='list-group lst'>
 
                   <li className='list-group-item list-group-item-action'>
-                       Name: <span className='fw-bold'>Name</span>
+                       Name: <span className='fw-bold'>{data.name}</span>
                   </li>
                   <li className='list-group-item list-group-item-action'>
-                        Mobile: <span className='fw-bold'>Mobileno</span>
+                        Mobile: <span className='fw-bold'>{data.phone}</span>
                   </li>
                   <li className='list-group-item list-group-item-action'>
-                        Email: <span className='fw-bold'>Email</span>
+                        Email: <span className='fw-bold'><a href='' >{data.email}</a></span>
                   </li>
                 </ul>
 
